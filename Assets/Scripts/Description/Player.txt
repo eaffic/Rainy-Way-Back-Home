@@ -1,0 +1,90 @@
+// 値は未確定
+
+// アニメーションと向き変更
+public enum STATE
+{
+    STOP,
+    LEFT,
+    RIGHT,
+    JUMP,
+}
+
+// 汚れ値と蓄積ダメージの限界
+int Hp{get; set;} = 0;
+int damageMax = 100;
+
+// オブジェクトとUI読み込み
+GameObject umbrella;
+GameObject bullet;
+Image hpGaugeEmpty;
+
+// raycastのためのレイヤー判別
+LayerMask groundLayer = 1 << 3;
+LayerMask waterLayer = 1 << 4;
+
+// 歩く速さ
+float moveSpeed = 5f;
+float noUmbrellaSpeed = 7f;
+int umbrellaAngleSpeed = 4;
+
+Rigidbody2D rb;
+Animator anim;
+
+STATE state = STATE.RIGHT;
+
+// 
+float x;
+float y;
+
+// 傘の角度
+int umbrellaAngle = 0;
+int umbrellaAngleMax = 60;
+
+// 段数制限
+int bulletCount = 1000;
+int damage;
+
+// マウス座標
+Vector3 mousePosScreen;
+Vector3 mousePos;
+float deg;
+
+// 坂道で使う計算
+float slopeX = 0.5f;
+float slopeY = 1.25f;
+
+// 
+bool isGround = true;
+bool isSlope = false;
+bool isJump = false;
+
+// 重力
+float vy = 5f;
+float jumpTimeMax = 0.2f;
+Vector3 gravity;
+float jumpSpeed = 5f;
+float jumpTime = 0;
+
+// イベント
+bool isEvent = false;
+bool catFlag = false;
+
+// ----------------------------------------------------------------------------------------------------
+
+// 移動
+void Movement()
+
+// 傘の処理
+void MoveUmbrella()
+
+// 地面接地判定、坂道判定
+void CheckRay()
+
+// 弾発射
+void Shot()
+
+// イベント処理
+void CheckEvent()
+
+// 汚れ値増加
+void AddDamage(int damage)
